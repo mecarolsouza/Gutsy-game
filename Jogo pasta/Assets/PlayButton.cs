@@ -12,6 +12,12 @@ public class PlayButton : MonoBehaviour
 
     private void StartGame()
     {
-        SceneManager.LoadScene("Game");
+         // Desativa a cena MainMenu
+        GameObject mainMenu = GameObject.Find("MainMenu"); // Certifique-se de que o objeto que representa a cena MainMenu tenha o nome "MainMenu"
+        if (mainMenu != null)
+        {
+            mainMenu.SetActive(false);
+        }
+        SceneManager.LoadScene("Nível 1");
     }
 }
