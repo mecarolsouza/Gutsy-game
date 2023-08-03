@@ -38,4 +38,14 @@ public class player : MonoBehaviour
             spriteRenderer.flipX = false; // Virar para a direita
         }
     }
+
+     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the player collides with the ground
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            // Stop the player's movement
+            rb.velocity = Vector2.zero;
+        }
+}
 }
