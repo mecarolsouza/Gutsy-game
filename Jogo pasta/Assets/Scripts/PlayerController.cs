@@ -6,12 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;      // Velocidade de movimento do jogador
     public float jumpForce = 6f;     // Força do pulo
-    public Transform groundCheck;    // Transform que verifica se o jogador está tocando o chão
-    public LayerMask groundLayer;    // Layer do chão para verificar colisão
+   // public Transform groundCheck;    // Transform que verifica se o jogador está tocando o chão
+   // public LayerMask groundLayer;    // Layer do chão para verificar colisão
     public SpriteRenderer spriteRenderer; // Referência para o componente SpriteRenderer
     private Rigidbody2D rb;
-    private bool isGrounded;
-    private bool canJump = true;
+    //private bool isGrounded;
+    //private bool canJump = true;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Verificar se o jogador está tocando o chão
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
 
         // Obter entrada do teclado para movimentar o jogador
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -37,8 +37,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
 
         // Verificar se o jogador está no chão e pode pular
-        if (isGrounded && canJump)
-        {
+         //if (isGrounded && canJump){}
+        
             // Verificar se o jogador pressionou o botão de pulo (por exemplo, barra de espaço)
             if (Input.GetButtonDown("Jump"))
             {
@@ -55,6 +55,6 @@ public class PlayerController : MonoBehaviour
             {
                 spriteRenderer.flipX = false; // Virar para a direita
             }
-        }
+        
     }
 }
