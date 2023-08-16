@@ -3,9 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuPause : MonoBehaviour
 {
-    public GameObject pauseMenu;
     private bool isPaused = false;
-
+    public GameObject pauseMenu;
+    
+    private void Start()
+    {
+        // Deactivate the pauseMenu GameObject at the start of the game
+        pauseMenu.SetActive(false);
+    }
+    
     private void Update()
     {
         // Verifica se o botão "Esc" foi pressionado
@@ -42,16 +48,9 @@ public class MenuPause : MonoBehaviour
         SceneManager.LoadScene("OptionMenu");
     }
 
-    public void QuitMenuPause()
-    {
-        // Implemente aqui a lógica para sair do menu de pausa e retornar ao jogo
-        ResumeGame();
-    }
-
     public void MainMenuButton()
     {
         Time.timeScale = 1f; // Certifique-se de que o tempo volte ao normal ao sair do menu de pausa
-        SceneManager.LoadScene("MainMenu"); // Substitua "MainMenu" pelo nome da cena do menu principal
+        SceneManager.LoadScene("MainMenu");
     }
-
 }
