@@ -1,21 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Nivel1 : MonoBehaviour
 {
-    public GameObject MenuPause;
+    public GameObject pauseMenu;
     public GameObject Letter1;
+
     private void Start()
     {
-       MenuPause.SetActive(false);
+       pauseMenu.SetActive(false);
        Letter1.SetActive(false);
     }
 
     private void Update()
     {
+        // Verifica se o botão "Esc" foi pressionado
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            MenuPause.SetActive(true);
+            // Carrega a cena "MenuPause"
+            pauseMenu.SetActive(true);
+
+            // Pausa o jogo
+            Time.timeScale = 0f;
         }
     }
 }
+
 

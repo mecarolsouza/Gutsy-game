@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Letter1 : MonoBehaviour
+public class Letterhide : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject Letter1; // Referência ao GameObject da carta
+    public Button resumegame;
+
+    private void Start()
     {
-        
+        Button resumegameButton = resumegame.GetComponent<Button>();
+        resumegameButton.onClick.AddListener(ResumeGame);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResumeGame()
     {
-        
+        Time.timeScale = 1f; // Retorna o tempo ao normal para retomar o jogo
+        Letter1.SetActive(false); // Esconde a carta
     }
 }
