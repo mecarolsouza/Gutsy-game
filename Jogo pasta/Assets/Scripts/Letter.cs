@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Letter : MonoBehaviour
-{
+{    
+    public GameObject Letter1;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Letter : MonoBehaviour
 
         if(collider.gameObject.tag == "Player"){
             Destroy(gameObject);
+            Letter1.SetActive(true);
         }
     }
 }

@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - menupause
   - Water
   - UI
   - player
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: NIVEL1
+    uniqueID: 605949435
+    locked: 0
+  - name: PAUSEMENU
+    uniqueID: 2025784135
     locked: 0
