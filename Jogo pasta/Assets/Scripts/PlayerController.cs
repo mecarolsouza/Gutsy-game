@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;      // Velocidade de movimento do jogador
-    public float jumpForce = 6f;     // Força do pulo
+    public float moveSpeed;      // Velocidade de movimento do jogador
+    public float jumpForce;     // Força do pulo
    // public Transform groundCheck;    // Transform que verifica se o jogador está tocando o chão
    // public LayerMask groundLayer;    // Layer do chão para verificar colisão
     public SpriteRenderer spriteRenderer; // Referência para o componente SpriteRenderer
