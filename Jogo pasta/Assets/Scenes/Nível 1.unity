@@ -153,7 +153,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1258481056}
   - {fileID: 712136858}
   m_Father: {fileID: 1160105253}
   m_RootOrder: 0
@@ -1256,12 +1255,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712136857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -106.143, y: -4, z: -78.00012}
+  m_LocalPosition: {x: -106.143, y: -4, z: -36}
   m_LocalScale: {x: 25.76371, y: 51.92715, z: 51.92715}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1258481056}
   m_Father: {fileID: 125875808}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &712136859
 SpriteRenderer:
@@ -4315,7 +4315,7 @@ GameObject:
   - component: {fileID: 1258481057}
   m_Layer: 5
   m_Name: resumegame
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4327,17 +4327,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258481055}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -121.80005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.028153174, y: 0.0796203, z: -0.009520637, w: -0.9963821}
+  m_LocalPosition: {x: 0, y: 0, z: -0.31}
+  m_LocalScale: {x: 0.03831459, y: 0.01926851, z: 0.019746814}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 125875808}
+  m_Father: {fileID: 712136858}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.303, y: 350.886, z: 0.832}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.14299, y: 112.6}
+  m_AnchoredPosition: {x: 2.62, y: 2.58}
   m_SizeDelta: {x: 11.439, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258481057
