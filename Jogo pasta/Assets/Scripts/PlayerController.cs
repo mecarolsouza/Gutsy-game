@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;      // Velocidade de movimento do jogador
@@ -10,8 +11,10 @@ public class PlayerController : MonoBehaviour
    // public LayerMask groundLayer;    // Layer do chão para verificar colisão
     public SpriteRenderer spriteRenderer; // Referência para o componente SpriteRenderer
     private Rigidbody2D rb;
-    //private bool isGrounded;
-    //private bool canJump = true;
+    private bool isGrounded;
+    private bool canJump = true;
+    public int currentEnergy = 100; // Energia inicial do robô
+    public GameObject Battery;
 
     private void Start()
     {
@@ -37,7 +40,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
 
         // Verificar se o jogador está no chão e pode pular
-         //if (isGrounded && canJump){}
+         if (isGrounded && canJump){}
         
             // Verificar se o jogador pressionou o botão de pulo (por exemplo, barra de espaço)
             if (Input.GetButtonDown("Jump"))
@@ -57,4 +60,28 @@ public class PlayerController : MonoBehaviour
             }
         
     }
-}
+
+      private void OnTriggerEnter2D(Collider2D other)
+ {
+        if (other.CompareTag("battery"))
+        {
+            Battery Battery = other.GetComponent<Battery>();
+            if (Battery != null)
+            {
+                currentEnergy += Battery.energyAmount; // Aumenta a energia
+                Battery.gameObject.SetActive(false); // Desativa o coletável
+
+            }
+        }
+ }
+         public void RechargeEnergy(int amount)
+    {
+        currentEnergy += amount; // Aumenta a energia do jogador pelo valor especificado
+        if (currentEnergy > 100)
+        {
+            currentEnergy = 100; // Certifica-se de que a energia não exceda 100
+        }
+    }
+   
+ }
+

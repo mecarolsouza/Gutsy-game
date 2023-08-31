@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int energyAmount = 10; // Quantidade de energia que será concedida ao coletar o coletável
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //Makes the item disappear
-    void OnTriggerEnter2D(Collider2D collider){
-
-        if(collider.gameObject.tag == "Player"){
-            Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.RechargeEnergy(energyAmount);
+                Destroy(gameObject); // Destruir o coletável após coletar
+            }
         }
     }
+
+    
 }

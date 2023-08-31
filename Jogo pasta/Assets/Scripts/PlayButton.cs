@@ -18,6 +18,6 @@ public class PlayButton : MonoBehaviour
         {
             mainMenu.SetActive(false);
         }
-        SceneManager.LoadScene("Nível 1");
+        SceneManager.LoadScene("historia");
     }
 }
