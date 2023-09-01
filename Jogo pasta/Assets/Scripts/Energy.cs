@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnergyBar : MonoBehaviour
+public class Energy : MonoBehaviour
 {
     public Slider energySlider; // Referência ao Slider da barra de energia
     public int maxEnergy = 100; // Energia máxima do jogador
