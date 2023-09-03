@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     public int currentEnergy = 100; // Energia inicial do robô
     public GameObject Battery;
 
+    //double jump
+    public bool isJumping;
+    public bool doubleJump;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +47,7 @@ public class PlayerController : MonoBehaviour
          if (isGrounded && canJump){}
         
             // Verificar se o jogador pressionou o botão de pulo (por exemplo, barra de espaço)
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && !isJumping)
             {
                 // Aplicar uma força para o pulo
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -61,6 +65,22 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    //double jump e limite de pulo
+            void OnCollisionEnter2D(Collision2D collision)
+            {
+                if(collision.gameObject.layer == 7){
+                    isJumping = false;
+
+                }
+            }
+            void OnCollisionExit2D(Collision2D collision)
+            {
+                if(collision.gameObject.layer == 7){
+                    isJumping = true;
+                }
+            }
+
+
       private void OnTriggerEnter2D(Collider2D other)
  {
         if (other.CompareTag("battery"))
@@ -74,6 +94,7 @@ public class PlayerController : MonoBehaviour
             }
         }
  }
+ 
          public void RechargeEnergy(int amount)
     {
         currentEnergy += amount; // Aumenta a energia do jogador pelo valor especificado

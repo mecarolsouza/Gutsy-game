@@ -7,6 +7,9 @@ public class player : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 
+    public bool isJumping;
+    public bool doubleJump;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,14 +41,5 @@ public class player : MonoBehaviour
             spriteRenderer.flipX = false; // Virar para a direita
         }
     }
-
-     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Check if the player collides with the ground
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            // Stop the player's movement
-            rb.velocity = Vector2.zero;
-        }
-}
+   
 }
