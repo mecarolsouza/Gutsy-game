@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -12,9 +13,14 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriteRenderer; // Referência para o componente SpriteRenderer
     private Rigidbody2D rb;
     private bool isGrounded;
-    private bool canJump = true;
-    public int currentEnergy = 100; // Energia inicial do robô
+    private bool canJump = true; 
     public GameObject Battery;
+    private int currentEnergy = 50;
+    private int maxEnergy = 100; // Defina o valor máximo de energia aqui.
+    private float energyDecreaseRate = 1.0f;
+    private float energyDecreaseTimer = 0.0f;
+    public Slider energySlider;
+     
 
     //double jump
     public bool isJumping;
@@ -24,9 +30,12 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Atribuir o componente SpriteRenderer
+        UpdateEnergy();
     }
 
-    private void Update()
+    
+
+    public void Update()
     {
         // Verificar se o jogador está tocando o chão
         //isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
@@ -64,7 +73,7 @@ public class PlayerController : MonoBehaviour
             }
         
     }
-
+    
     //double jump e limite de pulo
             void OnCollisionEnter2D(Collision2D collision)
             {
@@ -79,30 +88,34 @@ public class PlayerController : MonoBehaviour
                     isJumping = true;
                 }
             }
-
-
-      private void OnTriggerEnter2D(Collider2D other)
- {
-        if (other.CompareTag("battery"))
-        {
-            Battery Battery = other.GetComponent<Battery>();
-            if (Battery != null)
-            {
-                currentEnergy += Battery.energyAmount; // Aumenta a energia
-                Battery.gameObject.SetActive(false); // Desativa o coletável
-
-            }
-        }
- }
- 
-         public void RechargeEnergy(int amount)
+             
+        private void UpdateEnergy()
     {
-        currentEnergy += amount; // Aumenta a energia do jogador pelo valor especificado
-        if (currentEnergy > 100)
+        // Diminui a energia com o tempo
+        energyDecreaseTimer += Time.deltaTime;
+        if (energyDecreaseTimer >= 1.0f) // Diminui a energia a cada segundo
         {
-            currentEnergy = 100; // Certifica-se de que a energia não exceda 100
+            energyDecreaseTimer = 0.0f;
+            DecreaseEnergy(1); // Diminui a energia em 1 unidade a cada segundo
         }
     }
-   
- }
+       public void RechargeEnergy(int amount)
+    {
+        // Recarrega a energia
+        currentEnergy += amount;
+        // Certifica-se de que a energia não exceda o valor máximo
+        currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
+        // Atualiza o valor do slider de energia
+        energySlider.value = (float)currentEnergy / maxEnergy;
+    }
+       public void DecreaseEnergy(int amount)
+    {
+        // Diminui a energia
+        currentEnergy -= amount;
+        // Certifica-se de que a energia não fique abaixo de 0
+        currentEnergy = Mathf.Max(currentEnergy, 0);
+       // Atualiza o valor do slider de energia
+        energySlider.value = (float)currentEnergy / 100f;
+    }
 
+}
