@@ -7,8 +7,14 @@ public class EnergyBar : MonoBehaviour
     private int currentEnergy = 50;
     private int maxEnergy = 100; // Defina o valor máximo de energia aqui.
     private float energyDecreaseRate = 1.0f;
-    private float energyDecreaseTimer = 0.0f;
+    private float energyDecreaseTimer = 1.0f;
     // Método para definir a energia na barra de energia
+   
+   private void Start ()
+   {
+    energySlider.value = 50f;
+   }
+   
     public void DefinirEnergia(int energia)
     {
         energySlider.value = energia; // Atualiza o valor do Slider para refletir a energia atual
@@ -20,7 +26,7 @@ public class EnergyBar : MonoBehaviour
         energyDecreaseTimer += Time.deltaTime;
         if (energyDecreaseTimer >= 1.0f) // Diminui a energia a cada segundo
         {
-            energyDecreaseTimer = 0.0f;
+            energyDecreaseTimer = 1.0f;
             DecreaseEnergy(1); // Diminui a energia em 1 unidade a cada segundo
         }
     }
