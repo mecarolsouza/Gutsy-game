@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     private float energyDecreaseRate = 1.0f;
     private float energyDecreaseTimer = 0.0f;
     public Slider energySlider;
-     
+    private Animator animator;
+    private bool correndo = false;
 
     //double jump
     public bool isJumping;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Atribuir o componente SpriteRenderer
         UpdateEnergy();
+        animator = GetComponent<Animator>();
     }
 
     
@@ -65,13 +67,24 @@ public class PlayerController : MonoBehaviour
             // Flip do jogador
             if (movement.x < 0)
             {
-                spriteRenderer.flipX = true; // Virar para a esquerda
+                spriteRenderer.flipX = false; // Virar para a esquerda
             }
             else if (movement.x > 0)
             {
-                spriteRenderer.flipX = false; // Virar para a direita
+                spriteRenderer.flipX = true; // Virar para a direita
             }
         
+         if (Input.GetKey(KeyCode.RightArrow)) // Verifique se a tecla de seta direita está pressionada
+        {
+            correndo = true;
+        }
+        else
+        {
+            correndo = false;
+        }
+
+        // Atualize a variável "correndo" no Animator
+        animator.SetBool("correndo", correndo);
     }
     
     //double jump e limite de pulo
