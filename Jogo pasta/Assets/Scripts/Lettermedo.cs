@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Lettermedo : MonoBehaviour
 {    
+    GameController gControl;
+
     public GameObject Letter1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gControl = GameController.gControl;        
     }
 
     // Update is called once per frame
@@ -20,9 +22,10 @@ public class Lettermedo : MonoBehaviour
     //Makes the item disappear
     void OnTriggerEnter2D(Collider2D collider){
 
-        if(collider.gameObject.tag == "Player"){
+        if(collider.gameObject.tag == "Player")
+        {
+            gControl.LetterOn();
             Destroy(gameObject);
-            Letter1.SetActive(true);
         }
     }
 }
