@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -85,6 +85,12 @@ public class PlayerController : MonoBehaviour
 
         // Atualize a variável "correndo" no Animator
         animator.SetBool("correndo", correndo);
+
+        // Verifica se a tecla enter foi clicada ao chegar próximo a porta
+        if(Input.GetKeyDown(KeyCode.Return) && GameController.gControl.letterOn)
+        {
+            SceneManager.LoadScene(GameController.gControl.proximaCena);
+        }
     }
     
     //double jump e limite de pulo
@@ -129,6 +135,16 @@ public class PlayerController : MonoBehaviour
         currentEnergy = Mathf.Max(currentEnergy, 0);
        // Atualiza o valor do slider de energia
         energySlider.value = (float)currentEnergy / 100f;
+    }
+
+    //Detecta se o player colidiu com a porta e pressionou enter
+    private void OnTriggerEnter2D (Collider2D other)
+    {
+        if(other.CompareTag("Porta") && GameController.gControl.letterOn)
+        {
+            //adicionar aqui a imagem de mensagem para pressionar enter
+            //use nomeDoArquivo.SetActive(true)
+        }
     }
 
 }

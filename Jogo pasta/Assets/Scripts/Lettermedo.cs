@@ -24,7 +24,10 @@ public class Lettermedo : MonoBehaviour
 
         if(collider.gameObject.tag == "Player")
         {
-            gControl.LetterOn();
+            gControl.LetterOn(); //Ativa a carta coletada
+
+            Letter1.SetActive(true); //Mostra o texto da carta
+
             Destroy(gameObject);
         }
     }

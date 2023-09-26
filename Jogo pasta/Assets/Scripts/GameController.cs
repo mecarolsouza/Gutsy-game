@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+   //Controle de níveis
+    public string proximaCena = "NivelDois";
+   
+   //Controle da porta
+    public GameObject porta;
+    public Sprite spritePortaAberta;
+    
     public static GameController gControl {get; private set;}
 
     public bool letterOn;
@@ -25,5 +32,14 @@ public class GameController : MonoBehaviour
     public void LetterOn ()
     {
         letterOn = true;
+
+        if (porta != null && spritePortaAberta != null)
+            {
+                SpriteRenderer portaRenderer = porta.GetComponent<SpriteRenderer>();
+                if (portaRenderer != null)
+                {
+                    portaRenderer.sprite = spritePortaAberta;
+                }
+            }
     }
 }
