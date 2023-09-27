@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
    //Controle de níveis
-    public string proximaCena = "NivelDois";
+    public string proximaCena = "Nivel2";
    
    //Controle da porta
     public GameObject porta;

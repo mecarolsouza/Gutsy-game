@@ -94,6 +94,12 @@ public class PlayerController : MonoBehaviour
         // Diminuir a energia com base na velocidade de movimento (ajuste conforme necessário)
         int energyDecreaseAmount = Mathf.Abs((int)(rb.velocity.x * 0.1f));
         DecreaseEnergy(energyDecreaseAmount);
+
+        if (Input.GetKeyDown(KeyCode.Return) && GameController.gControl.letterOn)
+        {
+            // Carregar a próxima cena (Nivel2) quando o jogador pressionar Enter.
+            SceneManager.LoadScene("Nivel2");
+        }
     }
     
     //double jump e limite de pulo
@@ -150,5 +156,7 @@ public class PlayerController : MonoBehaviour
             //use nomeDoArquivo.SetActive(true)
         }
     }
+
+    
 
 }
