@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     public GameObject Battery;
     private int currentEnergy = 50;
     private int maxEnergy = 100; // Defina o valor máximo de energia aqui.
-    private float energyDecreaseRate = 1.0f;
-    private float energyDecreaseTimer = 0.0f;
     public Slider energySlider;
     private Animator animator;
     private bool correndo = false;
@@ -32,7 +30,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Atribuir o componente SpriteRenderer
         UpdateEnergy();
+         currentEnergy = maxEnergy;
         animator = GetComponent<Animator>();
+        energySlider = FindObjectOfType<Slider>(); // Encontre a barra de energia na cena
     }
 
     
@@ -91,6 +91,9 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(GameController.gControl.proximaCena);
         }
+        // Diminuir a energia com base na velocidade de movimento (ajuste conforme necessário)
+        int energyDecreaseAmount = Mathf.Abs((int)(rb.velocity.x * 0.1f));
+        DecreaseEnergy(energyDecreaseAmount);
     }
     
     //double jump e limite de pulo
@@ -110,12 +113,13 @@ public class PlayerController : MonoBehaviour
              
         private void UpdateEnergy()
     {
-        // Diminui a energia com o tempo
-        energyDecreaseTimer += Time.deltaTime;
-        if (energyDecreaseTimer >= 1.0f) // Diminui a energia a cada segundo
+        // Certifica-se de que a energia não seja menor que zero
+        currentEnergy = Mathf.Max(currentEnergy, 0);
+
+        // Atualize a barra de energia
+        if (energySlider != null)
         {
-            energyDecreaseTimer = 0.0f;
-            DecreaseEnergy(1); // Diminui a energia em 1 unidade a cada segundo
+            energySlider.value = (float)currentEnergy / maxEnergy;
         }
     }
        public void RechargeEnergy(int amount)
