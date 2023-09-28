@@ -11,10 +11,14 @@ public class GameController : MonoBehaviour
     public GameObject porta;
     public Sprite spritePortaAberta;
     
+    
     public static GameController gControl {get; private set;}
 
     public bool letterOn;
+    
+    
 
+    
     private void Awake()
     {
         if(gControl == null)
@@ -28,6 +32,9 @@ public class GameController : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    
+        
 
     public void LetterOn ()
     {
