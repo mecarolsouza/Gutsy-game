@@ -35,7 +35,7 @@ public class ControleFlashbacks : MonoBehaviour
         // Ativa a cena Nivel1 quando necessário
         if (cenaAtivada)
         {
-            SceneManager.LoadScene("Nível 1");
+            SceneManager.LoadScene("Nível1");
         }
     }
 

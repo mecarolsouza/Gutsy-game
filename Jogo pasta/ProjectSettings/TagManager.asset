@@ -51,3 +51,6 @@ TagManager:
   - name: PAUSEMENU
     uniqueID: 2025784135
     locked: 0
+  - name: NIVELDOIS
+    uniqueID: 3664967489
+    locked: 0

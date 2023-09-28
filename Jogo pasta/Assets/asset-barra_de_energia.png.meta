@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      asset-barra_de_energia_0: -6011031046998623861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

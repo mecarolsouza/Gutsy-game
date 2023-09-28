@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gutsy continua cena_0: 2078891234569919294
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
