@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class OptionsButton : MonoBehaviour
 {
+    public GameObject pauseMenu;
+
     private void Start()
     {
         Button OptionsButton = GetComponent<Button>();
-        OptionsButton.onClick.AddListener(OpenOptions);
+        OptionsButton.onClick.AddListener(ClosePauseMenu);
     }
 
-    private void OpenOptions()
+    private void ClosePauseMenu()
     {
-        SceneManager.LoadScene("OptionMenu");
+        pauseMenu.SetActive(false);
     }
 }
