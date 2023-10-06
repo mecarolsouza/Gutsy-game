@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      proxfase-comando_0: 4747459375241929391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
