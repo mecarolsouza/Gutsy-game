@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Slider energySlider;
     private Animator animator;
     private bool correndo = false;
+    private bool pulando = false;
 
     //double jump
     public bool isJumping;
@@ -62,7 +63,16 @@ public class PlayerController : MonoBehaviour
             {
                 // Aplicar uma força para o pulo
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+
+                //Ativar animação de pulo
+                pulando = true;
             }
+         
+         //Parar a animação de pulo
+         if (rb.velocity.y == 0)
+         {
+            pulando = false;
+         }
 
             // Flip do jogador
             if (movement.x < 0)
@@ -74,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = true; // Virar para a direita
             }
         
-         if (Input.GetKey(KeyCode.RightArrow)) // Verifique se a tecla de seta direita está pressionada
+         if (Input.GetAxis("Horizontal") != 0) // Verifique se a tecla de seta direita está pressionada
         {
             correndo = true;
         }
@@ -83,8 +93,9 @@ public class PlayerController : MonoBehaviour
             correndo = false;
         }
 
-        // Atualize a variável "correndo" no Animator
+        // Atualizando a variável "correndo" e "pulando" no Animator
         animator.SetBool("correndo", correndo);
+        animator.SetBool("pulando", pulando);
 
         // Verifica se a tecla enter foi clicada ao chegar próximo a porta
         if(Input.GetKeyDown(KeyCode.Return) && GameController.gControl.letterOn)

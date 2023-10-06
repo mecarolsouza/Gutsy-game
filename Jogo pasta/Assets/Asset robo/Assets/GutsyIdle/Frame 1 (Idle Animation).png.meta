@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0c72f22f9ec7d7546a347e383c39bdac
+guid: d1201b1b1c2bc4a4fae8b897cdee05d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1375790265199363740
-    second: Frame 3 (Idle Animation)_0
+      213: -4036953430180653659
+    second: Frame 1 (Idle Animation)_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -80,7 +80,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -93,7 +92,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -106,7 +104,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -119,20 +116,19 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frame 3 (Idle Animation)_0
+      name: Frame 1 (Idle Animation)_0
       rect:
         serializedVersion: 2
-        x: 723
+        x: 722
         y: 165
         width: 483
-        height: 763
+        height: 765
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 469f9550b0638ece0800000000000000
-      internalID: -1375790265199363740
+      spriteID: 5a599437e3cd9f7c0800000000000000
+      internalID: -4036953430180653659
       vertices: []
       indices: 
       edges: []
@@ -157,7 +153,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frame 3 (Idle Animation)_0: -1375790265199363740
+      Frame 1 (Idle Animation)_0: -4036953430180653659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
