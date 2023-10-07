@@ -152,7 +152,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Frame 1 (Corrida Animation)_0: 117377761134059995
+      Frame 1 (Corrida Animation)_1: 3434494106021301077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
