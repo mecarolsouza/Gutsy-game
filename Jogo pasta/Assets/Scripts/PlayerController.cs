@@ -100,7 +100,39 @@ public class PlayerController : MonoBehaviour
         // Verifica se a tecla enter foi clicada ao chegar próximo a porta e carrega próxima cena
         if(Input.GetKeyDown(KeyCode.Return) && GameController.gControl.letterOn)
         {
-            SceneManager.LoadScene(GameController.gControl.proximaCena);
+            GameObject porta = GameObject.Find("Porta");
+            Transform portaTransform = null;
+
+            //teste para ver se a porta foi encontrada. Por algum motivo a condição só funciona com isso???? 
+            if (porta != null)
+            {
+                portaTransform = porta.transform;
+                Debug.Log("Porta encontrada!");
+            }
+
+            else
+            {
+                Debug.LogError("Porta não encontrada!");
+            }
+
+            if(porta != null){
+                    // Verifique se o jogador está perto o suficiente da porta.
+                    float distance = Vector3.Distance(transform.position, portaTransform.position);
+                    
+                    // Defina a distância mínima para permitir a passagem.
+                    float distanciaMinima = 2.0f; // Ajuste conforme necessário.
+
+                
+
+                if (distance <= distanciaMinima){
+                    // Desativa a função letterOn.
+                    GameController.gControl.letterOn = false;
+                    
+                    SceneManager.LoadScene(GameController.gControl.proximaCena);
+
+                }
+            }            
+            
         }
 
         // Diminuir a energia com base na velocidade de movimento (ajuste conforme necessário)
