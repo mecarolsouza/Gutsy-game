@@ -15,26 +15,32 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool canJump = true; 
     public GameObject Battery;
+    public GameObject letterMedo;
+    public GameObject RecadoPorta;
     private int currentEnergy = 50;
     private int maxEnergy = 100; // Defina o valor máximo de energia aqui.
     public Slider energySlider;
     private Animator animator;
     private bool correndo = false;
     private bool pulando = false;
-
+    
     //double jump
     public bool isJumping;
     public bool doubleJump;
 
     private void Start()
     {
+        RecadoPorta.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); // Atribuir o componente SpriteRenderer
         UpdateEnergy();
          currentEnergy = maxEnergy;
         animator = GetComponent<Animator>();
         energySlider = FindObjectOfType<Slider>(); // Encontre a barra de energia na cena
+            // Se letterMedo for falso, ative o objeto RecadoPorta
+     
     }
+
 
     
 
@@ -133,6 +139,7 @@ public class PlayerController : MonoBehaviour
                 }
             }            
             
+            
         }
 
         // Diminuir a energia com base na velocidade de movimento (ajuste conforme necessário)
@@ -194,5 +201,6 @@ public class PlayerController : MonoBehaviour
             //use nomeDoArquivo.SetActive(true)
         }
     }
-
+    
+    
 }

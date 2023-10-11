@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "movimenta\xE7\xE3o-comandos_0": 3670456251032599034
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

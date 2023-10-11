@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lettermedo : MonoBehaviour
 {    
     GameController gControl;
-
+    public GameObject RecadoPorta;
     public GameObject Letter1;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,15 @@ public class Lettermedo : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDestroy()
+    {
+        // Verifique se o objeto RecadoPorta não é nulo e ative-o.
+        if (RecadoPorta != null)
+        {
+            RecadoPorta.SetActive(true);
+        }
     }
 
     //Makes the item disappear
