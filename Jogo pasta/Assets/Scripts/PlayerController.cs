@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private bool correndo = false;
     private bool pulando = false;
-    
+  
     //double jump
     public bool isJumping;
     public bool doubleJump;

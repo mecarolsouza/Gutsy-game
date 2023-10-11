@@ -14,6 +14,7 @@ public class LetterRaiva : MonoBehaviour
     void Start()
     {
         gControl = GameController.gControl;
+
         carta.SetActive(false);
     }
 
@@ -35,11 +36,11 @@ public class LetterRaiva : MonoBehaviour
 
             gControl.LetterOn(); //Ativa a carta coletada
 
-           carta.SetActive(true); //Mostra o texto da carta
+            carta.SetActive(true); //Mostra o texto da carta
 
             Destroy(gameObject);
 
-            SceneManagement.LoadScene(GameController.gControl.proximaCena);
+            SceneManager.LoadScene(GameController.gControl.proximaCena);
         }
     }
 }
