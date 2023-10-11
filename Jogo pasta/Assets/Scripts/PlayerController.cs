@@ -97,11 +97,12 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("correndo", correndo);
         animator.SetBool("pulando", pulando);
 
-        // Verifica se a tecla enter foi clicada ao chegar próximo a porta
+        // Verifica se a tecla enter foi clicada ao chegar próximo a porta e carrega próxima cena
         if(Input.GetKeyDown(KeyCode.Return) && GameController.gControl.letterOn)
         {
             SceneManager.LoadScene(GameController.gControl.proximaCena);
         }
+
         // Diminuir a energia com base na velocidade de movimento (ajuste conforme necessário)
         int energyDecreaseAmount = Mathf.Abs((int)(rb.velocity.x * 0.1f));
         DecreaseEnergy(energyDecreaseAmount);

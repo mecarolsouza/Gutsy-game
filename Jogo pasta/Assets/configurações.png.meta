@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "configura\xE7\xF5es_0": -858287722208194786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

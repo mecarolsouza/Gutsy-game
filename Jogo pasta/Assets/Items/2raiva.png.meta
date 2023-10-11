@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      2raiva_0: -9117423685540702823
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
